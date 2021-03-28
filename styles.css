@@ -1,0 +1,46 @@
+body {
+    text-align: center;
+    padding: 50px;
+    background-color: lightgrey;
+}
+
+h2 {
+    margin: 60px auto;
+    font-size: 46px;
+}
+.btn {
+    max-width: 40%;
+}
+
+.input-group {
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+table {
+    width:87%;
+    color: black;
+    margin: 50px auto;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: center;
+}
+#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+#t01 tr:nth-child(odd) {
+ background-color: #fff;
+}
+#t01 th {
+  background-color: white;
+  color: black;
+}
+
+.errorMessage {
+  color: red;
+}

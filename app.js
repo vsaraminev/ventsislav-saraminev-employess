@@ -67,10 +67,14 @@ const findEmployyesWorkedTogether = (allEmployees) => {
 const isValidEmployeeInfo = (employee, line) => {
    if (isNaN(employee.dateFrom) || isNaN(employee.dateTo)) {
       $('.errorMessage').text(`There is a wrong date format in your file on line ${line + 1}. Please, correct it and upload the file again.`);
+      $('table').hide();
+      $('.errorMessage').show();
       return false;
    }
-   if (employee.dateTo > employee.dateFrom) {
+   if (employee.dateTo < employee.dateFrom) {
       $('.errorMessage').text(`The end date cannont be earlier than the start date. Check line ${line + 1}. Please, correct it and upload the file again.`);
+      $('table').hide();
+      $('.errorMessage').show();
       return false;
    }
    return true;
@@ -110,6 +114,9 @@ const daysCalc = (end, start) => {
 };
 
 const printOutputMessage = (sortedEmployeesWorkedTogether) => {
+   $('.errorMessage').hide();
+   $('table').find('thead').text('');
+   $('table').find('tbody').text('');
    $('table').find('thead').append(`<tr>
       <td>Employee ID #1</td>
       <td>Employee ID #2</td>
@@ -122,5 +129,6 @@ const printOutputMessage = (sortedEmployeesWorkedTogether) => {
    <td>${sortedEmployeesWorkedTogether[0].projectId}</td>
    <td>${sortedEmployeesWorkedTogether[0].days}</td>
 </tr>`);
+   $('table').show();
 }
 
